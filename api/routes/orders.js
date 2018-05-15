@@ -8,6 +8,7 @@ const Order = require('../models/order');
 router.get('/', (req, res, next) => {
 
     Order.find()
+    .select('product quantity _id')
     .exec()
     .then(docs => {
         res.status(201).json(docs);
